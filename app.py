@@ -1,57 +1,100 @@
-from flask import Flask,request,render_template
-import numpy as np
+from flask import Flask, request, jsonify
+from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
-import sklearn
-import pickle
+from flask_httpauth import HTTPTokenAuth
+import mysql.connector
+from datetime import datetime, timedelta
+import os
 
-# Importar los modelos
-rf_classifier = pickle.load(open('model.pkl','rb'))
-scaler = pickle.load(open('scaler.pkl','rb'))
- 
-# crear flask
 app = Flask(__name__)
+auth = HTTPTokenAuth(scheme='Bearer')
 
-@app.route('/')
-def index():
-    return render_template("index.html")
+VALID_TOKEN = "PgVPDqHJ9ffJ2Lx73bXvv9uraib1Y0eCYb9HvCa3aOluuzfkoMFJ1"
 
-@app.route("/predict",methods=['POST'])
-def predict():
-    sl_no = request.form['sl_no']
-    gender = request.form['Genero']  
+tokens = {
+    VALID_TOKEN: "user"
+}
 
-    ssc_p = float(request.form['ssc_p'])
-    hsc_p = float(request.form['hsc_p'])
-    degree_p = float(request.form['degree_p'])
-    
-    workex = request.form['workex']
-    
-    etest_p = float(request.form['etest_p'])
-    
-    specialisation = request.form['specialisation']
-    
-    mba_p = float(request.form['mba_p'])
+last_update_file = 'last_update.txt'
 
-    data = [[sl_no, gender, ssc_p, hsc_p, degree_p, workex, etest_p, specialisation, mba_p]]
-    columns = ['sl_no', 'gender', 'ssc_p', 'hsc_p', 'degree_p', 'workex', 'etest_p', 'specialisation', 'mba_p']
-    df = pd.DataFrame(data, columns=columns)
-    specialisation_mapping = {'Mkt&HR': 0, 'Mkt&Fin': 1}
-    #status_mapping = {'Placed': 0, 'Not Placed': 1}
-    workex_mapping = {'No': 0, 'Yes': 1}
-    gender_mapping = {'M': 0, 'F': 1}
-    
-    df['specialisation'] = df['specialisation'].map(specialisation_mapping)
-    df['workex'] = df['workex'].map(workex_mapping)
-    df['gender'] = df['gender'].map(gender_mapping)
-    df_t = scaler.transform(df)
-    prediction = rf_classifier.predict(df_t)
+@auth.verify_token
+def verify_token(token):
+    if token in tokens:
+        return tokens[token]
+    return None
+def save_last_update():
+    # Guardar la fecha y hora actual como la última actualización
+    with open(last_update_file, 'w') as file:
+        file.write(datetime.now().isoformat())
 
-    if prediction == 0:
-        result = 'contratado'
+
+def load_data_from_mysql():
+    mydb = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="123a456",
+        database="foreslab_catalogue"
+    )
+
+    query = "SELECT * FROM `recommendations`"
+    cursor = mydb.cursor()
+    cursor.execute(query)
+    rows = cursor.fetchall()
+
+    df = pd.DataFrame(rows, columns=['id', 'Family', 'valor', 'Country','time1','time2'])
+    df_reestructurado = pd.pivot_table(df, values='valor', index='Family', columns='Country', aggfunc='first')
+    cursor.close()
+    mydb.close()
+
+    csv_path = 'reconstructed_df.csv'
+    df_reestructurado.to_csv(csv_path, index=True)
+    save_last_update()
+
+    return df_reestructurado
+
+def load_last_update():
+    if os.path.exists(last_update_file):
+        with open(last_update_file, 'r') as file:
+            last_update_str = file.read().strip()
+            return datetime.fromisoformat(last_update_str)
+    return None
+
+def should_update_data():
+    last_update = load_last_update()
+    if last_update is None:
+        return True  # Si nunca se ha actualizado, se debe actualizar ahora
+    return (datetime.now() - last_update) >= timedelta(days=7)
+
+def get_recommendations(column_name, reconstructed_df, top_n=5):
+    column_idx = reconstructed_df.columns.get_loc(column_name)
+    item_similarity = cosine_similarity(reconstructed_df.T)
+    column_similarities = item_similarity[column_idx]
+    similar_indices = column_similarities.argsort()[::-1][1:top_n+1]
+    recommended_rows = reconstructed_df.index[similar_indices]
+    return recommended_rows
+
+@app.route('/recommend', methods=['POST'])
+@auth.login_required
+def recommend():
+    data = request.json
+    column_name = data['column_name']
+
+    # Verificar si es necesario actualizar los datos
+    if should_update_data():
+        # Cargar datos desde MySQL y guardar en archivo CSV
+        reconstructed_df = load_data_from_mysql()
     else:
-        result = 'No Contratado'
+        # Cargar datos desde el archivo CSV local
+        csv_path = 'reconstructed_df.csv'
+        reconstructed_df = pd.read_csv(csv_path)
+        reconstructed_df.set_index('Family', inplace=True)
 
-    return render_template('index.html', result=result)
-# python main
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=10000, debug=False)
+    recommended_items = get_recommendations(column_name, reconstructed_df)
+
+    return jsonify({
+        "column_name": column_name,
+        "recommended_items": recommended_items.tolist()
+    })
+
+if __name__ == '__main__':
+    app.run(debug=True)
