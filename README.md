@@ -44,7 +44,7 @@ Para el sistema de recomendación, se utilizará el método de descomposición e
 
 El sistema de recomendación se implementará como una API que se integrará con la plataforma principal. Utilizaremos Flask, un framework ligero de Python, para desarrollar y desplegar los modelos de recomendación. La API de recomendación desarrollada con Flask se integrará en la plataforma a través de endpoints que permitirán la búsqueda y filtrado de clones de papas óptimos para su envío a diferentes países.
 
-#### Flujo de trabajo (ver Figura 1)
+#### Flujo de trabajo
 
 1. **Recolección de Datos:** Se recopilan datos de materiales de reproducción, liberaciones de variedades en diferentes países y clones avanzados de papas, junto con marcadores SSR y SNP.
 2. **Asignación de Puntajes:** Los datos recopilados se utilizan para asignar puntajes a los clones en función de los lugares de envío, el tipo de muestra enviada, la frecuencia de envío, liberación de variedades en los países.
@@ -60,7 +60,7 @@ _Figura 1: Diagrama del flujo de trabajo que resume la implementación del siste
 
 El siguiente diagrama entidad-relación (ERD) muestra la estructura de la base de datos utilizada en la plataforma de administración de datos. Este diagrama representa las entidades principales y sus relaciones, facilitando la comprensión de cómo se organiza y gestiona la información sobre los clones de papas.
 
-![Diagrama ERD]([file:///mnt/data/database_crops.svg](https://github.com/FranciscoAscue/api-recommend-system-crops/blob/master/DATABASE.png))
+![Diagrama ERD](https://github.com/FranciscoAscue/api-recommend-system-crops/blob/master/DATABASE.png)
 _Figura 2: Diagrama entidad-relación (ERD) de la base de datos utilizada en la plataforma. Las entidades principales incluyen usuarios, países, envíos, clones, variedades, características de clones y recomendaciones._
 
 ## 4. Tu Enfoque y Resultados
