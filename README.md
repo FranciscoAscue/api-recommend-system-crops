@@ -63,7 +63,7 @@ El siguiente diagrama entidad-relación (ERD) muestra la estructura de la base d
 ![Diagrama ERD](https://github.com/FranciscoAscue/api-recommend-system-crops/blob/master/DATABASE.png)
 _Figura 2: Diagrama entidad-relación (ERD) de la base de datos utilizada en la plataforma. Las entidades principales incluyen usuarios, países, envíos, clones, variedades, características de clones y recomendaciones._
 
-## 7. Tu Enfoque y Resultados
+## 7. Enfoque y Resultados
 
 ### Enfoque Técnico e Innovaciones
 
