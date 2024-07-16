@@ -55,3 +55,40 @@ El sistema de recomendación se implementará como una API que se integrará con
 
 ![](https://github.com/FranciscoAscue/api-recommend-system-crops/blob/master/FLUJO.png)
 _Figura 1: Diagrama del flujo de trabajo que resume la implementación del sistema de recomendación. La figura muestra el procesamiento de la información brindada por el CIP, así como información externa para creación de un sistema de recomendación en Flask y finalmente la interconexión entre Laravel 10 para el backend y MySQL para la base de datos._
+
+
+## 4. Tu Enfoque y Resultados
+
+### Enfoque Técnico e Innovaciones
+
+Nuestro enfoque técnico se centra en el uso de la Descomposición en Valores Singulares (SVD) para la factorización de matrices y el desarrollo de una API en Flask para integrar el sistema de recomendación con la plataforma de administración de datos. Esta innovación permite una recomendación precisa de clones de papas adaptables a diferentes condiciones climáticas, basándose en datos históricos y caracterización morfológica.
+
+### Resultados de la Evaluación
+
+Hemos evaluado nuestro sistema utilizando un conjunto de datos proporcionado por el Centro Internacional de la Papa (CIP) y datos climáticos de WorldClim. Las métricas de evaluación incluyen precisión en las recomendaciones y reducción en los tiempos de selección de clones. Los resultados han mostrado una mejora significativa en la precisión de las recomendaciones y una reducción considerable en el tiempo de selección, comparado con los métodos tradicionales.
+
+### Impacto de los Resultados
+
+Los resultados obtenidos confirman que el sistema de recomendación basado en SVD y Flask es efectivo y eficiente, superando las expectativas en términos de precisión y tiempo de procesamiento. Esto facilita a los mejoradores genéticos la toma de decisiones informadas y rápidas, optimizando el proceso de desarrollo de nuevas variedades de papas.
+
+## Impacto Más Amplio
+
+### Esperado Impacto del Trabajo
+
+El sistema propuesto permitirá a los mejoradores reducir los costos operativos y mejorar la eficiencia, lo cual puede traducirse en productos finales más económicos y de mejor calidad. Además, optimizará la toma de decisiones mediante la recomendación de clones de papas óptimos basados en datos históricos y características morfológicas y de rendimiento, permitiendo una adaptación más precisa a diferentes condiciones climáticas.
+
+### Aplicabilidad y Lecciones Aprendidas
+
+Esperamos que nuestro trabajo sea aplicado por otros investigadores y mejoradores genéticos para optimizar sus procesos de selección de cultivos. Las técnicas y métodos utilizados pueden adaptarse a otros tipos de cultivos y contextos agrícolas, promoviendo una agricultura más inteligente y sostenible.
+
+### Limitaciones y Futuras Mejoras
+
+Las principales limitaciones de nuestro trabajo incluyen la dependencia de datos históricos y la necesidad de una integración constante de nuevos datos para mantener la precisión del sistema de recomendación. Áreas para futuras mejoras incluyen la incorporación de más métodos de recomendación y el uso de datos en tiempo real para ajustar continuamente las recomendaciones.
+
+## 5. Cronograma
+
+| Semana | Actividades                                                                                  |
+|--------|----------------------------------------------------------------------------------------------|
+| 1      | - Recolección de datos<br> - Desarrollo de la base de datos en MySQL<br> - Configuración de Laravel 10 |
+| 2      | - Implementación del backend de la plataforma<br> - Desarrollo del sistema de recomendación en Flask<br> - Integración de SVD y creación de la API de recomendación |
+| 3      | - Pruebas y validación del sistema<br> - Integración de la plataforma y el sistema de recomendación<br> - Implementación de la interfaz web y despliegue final |
