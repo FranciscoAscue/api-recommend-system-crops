@@ -4,9 +4,13 @@
 
 Uno de los principales retos en el mejoramiento genético de plantas es la generación de nuevas variedades resistentes a las condiciones climáticas actuales, las cuales son cada vez más variables debido al cambio climático. Además, estas variedades deben desarrollarse en corto tiempo para abordar problemas urgentes como la seguridad alimentaria. Los mejoradores genéticos enfrentan el desafío de tomar decisiones rápidas y precisas al seleccionar el germoplasma adecuado, es decir, elegir el material genético con las características óptimas para generar variedades adaptadas a sus condiciones climáticas específicas, reduciendo así los ensayos de adaptabilidad y estabilidad genética.
 
+El mejoramiento tradicional de la papa ha sido una práctica esencial en la agricultura durante siglos. Este proceso consiste en la selección y cruce de variedades de papa con características deseadas, tales como resistencia a enfermedades, adaptación a diferentes condiciones climáticas, y mejora en la calidad y rendimiento de los tubérculos. Mediante la selección de plantas con los mejores atributos y su reproducción, los agricultores han logrado desarrollar variedades que no solo se adaptan mejor a las condiciones locales, sino que también ofrecen mayores beneficios económicos y nutricionales.
+
+Históricamente, los métodos de mejoramiento han dependido en gran medida de la observación y la experiencia acumulada de los agricultores, quienes identifican y guardan las mejores semillas de cada cosecha. Este enfoque empírico ha sido fundamental para la diversificación y la adaptación de la papa en diversas regiones del mundo. Hoy en día, aunque existen técnicas modernas de mejoramiento genético, el mejoramiento tradicional sigue siendo una herramienta valiosa, especialmente en regiones donde el acceso a la biotecnología es limitado.
+
 ## 2. Declaración del Problema
 
-La correcta elección del material genético es crucial para optimizar el tiempo de cultivo y los ensayos de adaptabilidad antes de liberar una variedad para su uso en campo. La ubicación donde se siembra un cultivo puede impactar significativamente en la producción de nuevas variedades. Por ello, el problema a abordar es la selección eficiente de clones de papas adaptables a diferentes condiciones climáticas, utilizando datos históricos y caracterización morfológica para reducir los tiempos y costos en la creación de nuevas variedades.
+La correcta elección del material genético es crucial para optimizar el tiempo de cultivo y los ensayos de adaptabilidad antes de liberar una variedad para su uso en campo. La ubicación donde se siembra un cultivo puede impactar significativamente en la producción de nuevas variedades. Por ello, el problema a abordar es la selección eficiente de clones de papas adaptables a diferentes condiciones climáticas, utilizando datos históricos y caracterización morfológica para reducir los tiempos y costos en la creación de nuevas variedades
 
 ## 3. Desafíos
 
@@ -14,7 +18,17 @@ El problema es técnicamente desafiante debido a la gran cantidad de datos neces
 
 ## 4. Trabajos Relacionados
 
-Los trabajos anteriores han abordado estos desafíos mediante el uso de algoritmos de aprendizaje automático y sistemas de recomendación en otras áreas de la agricultura, como la selección de cultivos y pesticidas adecuados. Sin embargo, la mayoría de estos enfoques no han considerado la integración completa de datos morfológicos y de rendimiento con recomendaciones específicas para condiciones climáticas variadas. Nuestro trabajo se basa en estos fundamentos, mejorando la precisión y aplicabilidad del sistema de recomendación.
+Los trabajos anteriores han abordado estos desafíos mediante el uso de algoritmos de aprendizaje automático y sistemas de recomendación en otras áreas de la agricultura, como la selección de cultivos y pesticidas adecuados. Por ejemplo, Paudel et al. (2021) emplearon una combinación de modelos de cultivo y aprendizaje automático para predecir el rendimiento de los cultivos, utilizando datos de simulación de cultivos, clima, teledetección y suelos. Este enfoque modular y reutilizable mostró alta precisión en la predicción de rendimientos de cultivos a gran escala​ (SpringerLink)​.
+
+Sun et al. (2020) utilizaron técnicas como Gradient Boosting, Support Vector Regression (SVR) y k-Nearest Neighbors para predecir los rendimientos de varios cultivos, incluyendo papas, en diferentes países europeos. Su modelo de aprendizaje profundo combinó redes neuronales recurrentes (RNN) y convolucionales (CNN) para extraer características espaciales y temporales, mejorando significativamente la precisión de las predicciones en comparación con modelos tradicionales​ (SpringerLink)​.
+
+Khaki y Wang (2018) desarrollaron una solución basada en redes neuronales profundas para predecir el rendimiento de híbridos de maíz, utilizando datos de genotipos y medioambientales. Sus modelos mostraron una alta precisión al integrar variables de simulación de cultivos y datos meteorológicos, reduciendo el error de predicción del rendimiento hasta en un 20%​ (SpringerLink)​.
+
+En el ámbito específico de la recomendación de cultivos, Suresh et al. (2021) implementaron un sistema de recomendación eficiente basado en el aprendizaje automático para la agricultura digital, utilizando atributos de suelos y datos históricos para sugerir cultivos óptimos según las condiciones específicas de cada región. Este enfoque integró múltiples fuentes de datos para proporcionar recomendaciones personalizadas y precisas​ (SpringerLink)​.
+
+Patel y Patel (2020) realizaron una revisión exhaustiva de los sistemas de recomendación y sus extensiones prospectivas en la agricultura, destacando la integración de datos morfológicos y de rendimiento con recomendaciones específicas para condiciones climáticas variadas. Identificaron que la mayoría de los sistemas de recomendación actuales no consideraban completamente esta integración, lo que limita su aplicabilidad y precisión en escenarios reales​ (SpringerLink)​.
+
+Estos estudios proporcionan una base sólida para la integración de algoritmos de aprendizaje automático y sistemas de recomendación en el proceso de selección de clones de papas, mejorando la precisión y aplicabilidad del sistema de recomendación propuesto en nuestro trabajo.
 
 ## 5. Objetivos
 
@@ -48,10 +62,9 @@ El sistema de recomendación se implementará como una API que se integrará con
 
 1. **Recolección de Datos:** Se recopilan datos de materiales de reproducción, liberaciones de variedades en diferentes países y clones avanzados de papas, junto con marcadores SSR y SNP.
 2. **Asignación de Puntajes:** Los datos recopilados se utilizan para asignar puntajes a los clones en función de los lugares de envío, el tipo de muestra enviada, la frecuencia de envío, liberación de variedades en los países.
-3. **Clasificación de clones relacionados:** Se utilizará la información de caracterización así como las familias del cual se derivan los clones para encontrar clones más cercanamente relacionados pudiendo incorporar en un futuro información de marcadores genéticos.
-4. **Factorización de la Matriz:** Se aplica la factorización de matrices (SVD) para completar los datos faltantes y mejorar la matriz de datos.
-5. **Sistema de Recomendación:** La matriz de datos factorizada se utiliza para alimentar el sistema de recomendación, desarrollado con Flask, que proporciona recomendaciones de clones óptimos para diferentes regiones.
-6. **Integración Web:** La plataforma de administración de datos y el sistema de recomendación se integran en una interfaz web desarrollada con Laravel y MySQL.
+3. **Factorización de la Matriz:** Se aplica la factorización de matrices (SVD) para completar los datos faltantes y mejorar la matriz de datos.
+4. **Sistema de Recomendación:** La matriz de datos factorizada se utiliza para alimentar el sistema de recomendación, desarrollado con Flask, que proporciona recomendaciones de clones óptimos para diferentes regiones.
+5. **Integración Web:** La plataforma de administración de datos y el sistema de recomendación se integran en una interfaz web desarrollada con Laravel y MySQL.
 
 ![Diagrama de flujo](https://github.com/FranciscoAscue/api-recommend-system-crops/blob/master/FLUJO.png)
 _Figura 1: Diagrama del flujo de trabajo que resume la implementación del sistema de recomendación. La figura muestra el procesamiento de la información brindada por el CIP, así como información externa para creación de un sistema de recomendación en Flask y finalmente la interconexión entre Laravel 10 para el backend y MySQL para la base de datos._
