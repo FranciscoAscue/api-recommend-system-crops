@@ -2,16 +2,28 @@
 
 ## 1. Introducción & Antecedentes
 
+El mejoramiento tradicional de la papa ha sido una práctica esencial en la agricultura durante siglos. Este proceso consiste en la selección y cruce de variedades de papa con características deseadas, tales como resistencia a enfermedades, adaptación a diferentes condiciones climáticas, y mejora en la calidad y rendimiento de los tubérculos. Mediante la selección de plantas con los mejores atributos y su reproducción, los agricultores han logrado desarrollar variedades que no solo se adaptan mejor a las condiciones locales, sino que también ofrecen mayores beneficios económicos y nutricionales.
+![](https://github.com/FranciscoAscue/api-recommend-system-crops/blob/master/PAPA2.png)
+
+
+
 Uno de los principales retos en el mejoramiento genético de plantas es la generación de nuevas variedades resistentes a las condiciones climáticas actuales, las cuales son cada vez más variables debido al cambio climático. Además, estas variedades deben desarrollarse en corto tiempo para abordar problemas urgentes como la seguridad alimentaria. Los mejoradores genéticos enfrentan el desafío de tomar decisiones rápidas y precisas al seleccionar el germoplasma adecuado, es decir, elegir el material genético con las características óptimas para generar variedades adaptadas a sus condiciones climáticas específicas, reduciendo así los ensayos de adaptabilidad y estabilidad genética.
 
-El mejoramiento tradicional de la papa ha sido una práctica esencial en la agricultura durante siglos. Este proceso consiste en la selección y cruce de variedades de papa con características deseadas, tales como resistencia a enfermedades, adaptación a diferentes condiciones climáticas, y mejora en la calidad y rendimiento de los tubérculos. Mediante la selección de plantas con los mejores atributos y su reproducción, los agricultores han logrado desarrollar variedades que no solo se adaptan mejor a las condiciones locales, sino que también ofrecen mayores beneficios económicos y nutricionales.
+La ubicación donde se siembra un cultivo puede impactar significativamente en la producción de nuevas variedades. Por ello, la correcta elección del material genético es clave para optimizar el tiempo de cultivo y los ensayos de adaptabilidad antes de liberar una variedad para su uso en campo. La ciencia de datos se presenta como una disciplina prometedora para agilizar este proceso, ya que utiliza información verificada y datos históricos para generar predicciones y acelerar la toma de decisiones. En la agricultura, la ciencia de datos y la inteligencia artificial están abordando numerosos retos, aplicándose en sistemas de recomendación para seleccionar cultivos y pesticidas adecuados, monitorear enfermedades en cultivos, y promover una agricultura inteligente.
 
-Históricamente, los métodos de mejoramiento han dependido en gran medida de la observación y la experiencia acumulada de los agricultores, quienes identifican y guardan las mejores semillas de cada cosecha. Este enfoque empírico ha sido fundamental para la diversificación y la adaptación de la papa en diversas regiones del mundo. Hoy en día, aunque existen técnicas modernas de mejoramiento genético, el mejoramiento tradicional sigue siendo una herramienta valiosa, especialmente en regiones donde el acceso a la biotecnología es limitado.
+![](https://github.com/FranciscoAscue/api-recommend-system-crops/blob/master/FLUJO2.png)
+
+Nuestra propuesta se centra en desarrollar una plataforma de administración de datos que organizará la información y estará acoplada a un sistema de recomendación basado en el método de factorización de matrices. Este sistema utilizará información histórica, como datos de envíos de clones de papas a diferentes países, caracterización morfológica y parámetros de rendimiento del cultivo, para completar la información faltante. Esto permitirá identificar los cultivos más adaptables a regiones con condiciones climáticas similares, optimizando así la toma de decisiones para los mejoradores genéticos y reduciendo costos en transporte y pruebas de campo.
+
+Además, nuestro sistema de recomendación podrá establecer relaciones entre los clones desarrollados por el Centro Internacional de la Papa (CIP), integrando el estudio de marcadores moleculares y SNPs relacionados con parámetros de producción y adaptabilidad a diferentes condiciones. Esta integración facilitará el desarrollo de variedades optimizadas para enfrentar los retos agrícolas actuales.
+
 
 ## 2. Declaración del Problema
 
 La correcta elección del material genético es crucial para optimizar el tiempo de cultivo y los ensayos de adaptabilidad antes de liberar una variedad para su uso en campo. La ubicación donde se siembra un cultivo puede impactar significativamente en la producción de nuevas variedades. Por ello, el problema a abordar es la selección eficiente de clones de papas adaptables a diferentes condiciones climáticas, utilizando datos históricos y caracterización morfológica para reducir los tiempos y costos en la creación de nuevas variedades
 
+
+![](https://github.com/FranciscoAscue/api-recommend-system-crops/blob/master/DECLARACION%20DEL%20PROBLEMA.png)
 ## 3. Desafíos
 
 El problema es técnicamente desafiante debido a la gran cantidad de datos necesarios para realizar predicciones precisas, la diversidad de condiciones climáticas a nivel mundial y la necesidad de modelos de recomendación robustos que puedan manejar datos esparsos y variables. Además, integrar estos modelos en una plataforma accesible y fácil de usar representa un desafío técnico significativo.
@@ -66,7 +78,7 @@ El sistema de recomendación se implementará como una API que se integrará con
 4. **Sistema de Recomendación:** La matriz de datos factorizada se utiliza para alimentar el sistema de recomendación, desarrollado con Flask, que proporciona recomendaciones de clones óptimos para diferentes regiones.
 5. **Integración Web:** La plataforma de administración de datos y el sistema de recomendación se integran en una interfaz web desarrollada con Laravel y MySQL.
 
-![Diagrama de flujo](https://github.com/FranciscoAscue/api-recommend-system-crops/blob/master/FLUJO.png)
+![Diagrama de flujo](https://github.com/FranciscoAscue/api-recommend-system-crops/blob/master/FLUJOGRAMA.png)
 _Figura 1: Diagrama del flujo de trabajo que resume la implementación del sistema de recomendación. La figura muestra el procesamiento de la información brindada por el CIP, así como información externa para creación de un sistema de recomendación en Flask y finalmente la interconexión entre Laravel 10 para el backend y MySQL para la base de datos._
 
 ### Diagrama Entidad-Relación (ERD)
