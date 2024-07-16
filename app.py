@@ -23,7 +23,6 @@ def verify_token(token):
         return tokens[token]
     return None
 def save_last_update():
-    # Guardar la fecha y hora actual como la última actualización
     with open(last_update_file, 'w') as file:
         file.write(datetime.now().isoformat())
 
@@ -78,23 +77,21 @@ def get_recommendations(column_name, reconstructed_df, top_n=5):
 def recommend():
     data = request.json
     column_name = data['column_name']
-
-    # Verificar si es necesario actualizar los datos
+    top_n = data.get('top_n', 5)   
     if should_update_data():
-        # Cargar datos desde MySQL y guardar en archivo CSV
-        reconstructed_df = load_data_from_mysql()
+         reconstructed_df = load_data_from_mysql()
     else:
-        # Cargar datos desde el archivo CSV local
         csv_path = 'reconstructed_df.csv'
         reconstructed_df = pd.read_csv(csv_path)
         reconstructed_df.set_index('Family', inplace=True)
 
-    recommended_items = get_recommendations(column_name, reconstructed_df)
+    recommended_items = get_recommendations(column_name, reconstructed_df, top_n)
 
     return jsonify({
         "column_name": column_name,
         "recommended_items": recommended_items.tolist()
     })
 
-if __name__ == '__main__':
-    app.run(debug=True)
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=10000, debug=True)
