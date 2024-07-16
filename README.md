@@ -4,26 +4,26 @@
 
 Uno de los principales retos en el mejoramiento genético de plantas es la generación de nuevas variedades resistentes a las condiciones climáticas actuales, las cuales son cada vez más variables debido al cambio climático. Además, estas variedades deben desarrollarse en corto tiempo para abordar problemas urgentes como la seguridad alimentaria. Los mejoradores genéticos enfrentan el desafío de tomar decisiones rápidas y precisas al seleccionar el germoplasma adecuado, es decir, elegir el material genético con las características óptimas para generar variedades adaptadas a sus condiciones climáticas específicas, reduciendo así los ensayos de adaptabilidad y estabilidad genética.
 
-## Declaración del Problema
+## 2. Declaración del Problema
 
 La correcta elección del material genético es crucial para optimizar el tiempo de cultivo y los ensayos de adaptabilidad antes de liberar una variedad para su uso en campo. La ubicación donde se siembra un cultivo puede impactar significativamente en la producción de nuevas variedades. Por ello, el problema a abordar es la selección eficiente de clones de papas adaptables a diferentes condiciones climáticas, utilizando datos históricos y caracterización morfológica para reducir los tiempos y costos en la creación de nuevas variedades.
 
-## Desafíos
+## 3. Desafíos
 
 El problema es técnicamente desafiante debido a la gran cantidad de datos necesarios para realizar predicciones precisas, la diversidad de condiciones climáticas a nivel mundial y la necesidad de modelos de recomendación robustos que puedan manejar datos esparsos y variables. Además, integrar estos modelos en una plataforma accesible y fácil de usar representa un desafío técnico significativo.
 
-## Trabajos Relacionados
+## 4. Trabajos Relacionados
 
 Los trabajos anteriores han abordado estos desafíos mediante el uso de algoritmos de aprendizaje automático y sistemas de recomendación en otras áreas de la agricultura, como la selección de cultivos y pesticidas adecuados. Sin embargo, la mayoría de estos enfoques no han considerado la integración completa de datos morfológicos y de rendimiento con recomendaciones específicas para condiciones climáticas variadas. Nuestro trabajo se basa en estos fundamentos, mejorando la precisión y aplicabilidad del sistema de recomendación.
 
-## 2. Objetivos
+## 5. Objetivos
 
 1. Desarrollar una plataforma de administración de datos: Crear una herramienta que permita organizar y gestionar de manera eficiente la información sobre clones de papas, incluyendo imágenes, caracterización morfológica y parámetros de rendimiento.
 2. Implementar un sistema de recomendación basado en matrix factorization: Utilizar este método para analizar y completar información faltante, optimizando la selección de clones de papas adaptables a diferentes condiciones climáticas.
 3. Optimizar la selección de clones de papas para envíos internacionales: Filtrar y recomendar los clones más adecuados para su envío a otros países, basándose en datos históricos de distribución y adaptabilidad a condiciones climáticas similares.
 4. Facilitar la toma de decisiones para los mejoradores de papas: Proveer una herramienta que apoye la toma de decisiones basada en datos, ayudando a los mejoradores a seleccionar los mejores clones de papas para su cultivo en nuevas regiones.
 
-## 3. Metodología
+## 6. Metodología
 
 ### Desarrollo de la Plataforma de Administración de Datos
 
@@ -63,19 +63,8 @@ El siguiente diagrama entidad-relación (ERD) muestra la estructura de la base d
 ![Diagrama ERD](https://github.com/FranciscoAscue/api-recommend-system-crops/blob/master/DATABASE.png)
 _Figura 2: Diagrama entidad-relación (ERD) de la base de datos utilizada en la plataforma. Las entidades principales incluyen usuarios, países, envíos, clones, variedades, características de clones y recomendaciones._
 
-## 4. Tu Enfoque y Resultados
+## 7. Enfoque y Resultados
 
-### Enfoque Técnico e Innovaciones
-
-Nuestro enfoque técnico se centra en el uso de la Descomposición en Valores Singulares (SVD) para la factorización de matrices y el desarrollo de una API en Flask para integrar el sistema de recomendación con la plataforma de administración de datos. Esta innovación permite una recomendación precisa de clones de papas adaptables a diferentes condiciones climáticas, basándose en datos históricos y caracterización morfológica.
-
-### Resultados de la Evaluación
-
-Hemos evaluado nuestro sistema utilizando un conjunto de datos proporcionado por el Centro Internacional de la Papa (CIP) y datos climáticos de WorldClim. Las métricas de evaluación incluyen precisión en las recomendaciones y reducción en los tiempos de selección de clones. Los resultados han mostrado una mejora significativa en la precisión de las recomendaciones y una reducción considerable en el tiempo de selección, comparado con los métodos tradicionales.
-
-### Impacto de los Resultados
-
-Los resultados obtenidos confirman que el sistema de recomendación basado en SVD y Flask es efectivo y eficiente, superando las expectativas en términos de precisión y tiempo de procesamiento. Esto facilita a los mejoradores genéticos la toma de decisiones informadas y rápidas, optimizando el proceso de desarrollo de nuevas variedades de papas.
 
 ## Impacto Más Amplio
 
@@ -91,7 +80,7 @@ Esperamos que nuestro trabajo sea aplicado por otros investigadores y mejoradore
 
 Las principales limitaciones de nuestro trabajo incluyen la dependencia de datos históricos y la necesidad de una integración constante de nuevos datos para mantener la precisión del sistema de recomendación. Áreas para futuras mejoras incluyen la incorporación de más métodos de recomendación y el uso de datos en tiempo real para ajustar continuamente las recomendaciones.
 
-## 5. Cronograma
+## 8. Cronograma
 
 | Semana | Actividades                                                                                  |
 |--------|----------------------------------------------------------------------------------------------|
