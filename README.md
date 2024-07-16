@@ -53,9 +53,15 @@ El sistema de recomendación se implementará como una API que se integrará con
 5. **Sistema de Recomendación:** La matriz de datos factorizada se utiliza para alimentar el sistema de recomendación, desarrollado con Flask, que proporciona recomendaciones de clones óptimos para diferentes regiones.
 6. **Integración Web:** La plataforma de administración de datos y el sistema de recomendación se integran en una interfaz web desarrollada con Laravel y MySQL.
 
-![](https://github.com/FranciscoAscue/api-recommend-system-crops/blob/master/FLUJO.png)
+![Diagrama de flujo](https://github.com/FranciscoAscue/api-recommend-system-crops/blob/master/FLUJO.png)
 _Figura 1: Diagrama del flujo de trabajo que resume la implementación del sistema de recomendación. La figura muestra el procesamiento de la información brindada por el CIP, así como información externa para creación de un sistema de recomendación en Flask y finalmente la interconexión entre Laravel 10 para el backend y MySQL para la base de datos._
 
+### Diagrama Entidad-Relación (ERD)
+
+El siguiente diagrama entidad-relación (ERD) muestra la estructura de la base de datos utilizada en la plataforma de administración de datos. Este diagrama representa las entidades principales y sus relaciones, facilitando la comprensión de cómo se organiza y gestiona la información sobre los clones de papas.
+
+![Diagrama ERD]([file:///mnt/data/database_crops.svg](https://github.com/FranciscoAscue/api-recommend-system-crops/blob/master/DATABASE.png))
+_Figura 2: Diagrama entidad-relación (ERD) de la base de datos utilizada en la plataforma. Las entidades principales incluyen usuarios, países, envíos, clones, variedades, características de clones y recomendaciones._
 
 ## 4. Tu Enfoque y Resultados
 
