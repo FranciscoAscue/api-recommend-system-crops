@@ -65,17 +65,6 @@ _Figura 2: Diagrama entidad-relación (ERD) de la base de datos utilizada en la 
 
 ## 7. Enfoque y Resultados
 
-### Enfoque Técnico e Innovaciones
-
-Nuestro enfoque técnico se centra en el uso de la Descomposición en Valores Singulares (SVD) para la factorización de matrices y el desarrollo de una API en Flask para integrar el sistema de recomendación con la plataforma de administración de datos. Esta innovación permite una recomendación precisa de clones de papas adaptables a diferentes condiciones climáticas, basándose en datos históricos y caracterización morfológica.
-
-### Resultados de la Evaluación
-
-Hemos evaluado nuestro sistema utilizando un conjunto de datos proporcionado por el Centro Internacional de la Papa (CIP) y datos climáticos de WorldClim. Las métricas de evaluación incluyen precisión en las recomendaciones y reducción en los tiempos de selección de clones. Los resultados han mostrado una mejora significativa en la precisión de las recomendaciones y una reducción considerable en el tiempo de selección, comparado con los métodos tradicionales.
-
-### Impacto de los Resultados
-
-Los resultados obtenidos confirman que el sistema de recomendación basado en SVD y Flask es efectivo y eficiente, superando las expectativas en términos de precisión y tiempo de procesamiento. Esto facilita a los mejoradores genéticos la toma de decisiones informadas y rápidas, optimizando el proceso de desarrollo de nuevas variedades de papas.
 
 ## Impacto Más Amplio
 
