@@ -79,6 +79,8 @@ El sistema de recomendación se implementará como una API que se integrará con
 5. **Integración Web:** La plataforma de administración de datos y el sistema de recomendación se integran en una interfaz web desarrollada con Laravel y MySQL.
 
 ![Diagrama de flujo](https://github.com/FranciscoAscue/api-recommend-system-crops/blob/master/FLUJOGRAMA.png)
+
+
 _Figura 1: Diagrama del flujo de trabajo que resume la implementación del sistema de recomendación. La figura muestra el procesamiento de la información brindada por el CIP, así como información externa para creación de un sistema de recomendación en Flask y finalmente la interconexión entre Laravel 10 para el backend y MySQL para la base de datos._
 
 ### Diagrama Entidad-Relación (ERD)
