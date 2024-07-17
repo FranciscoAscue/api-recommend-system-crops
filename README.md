@@ -15,9 +15,6 @@ La ubicación donde se siembra un cultivo puede impactar significativamente en l
 
 Nuestra propuesta se centra en desarrollar una plataforma de administración de datos que organizará la información y estará acoplada a un sistema de recomendación basado en el método de factorización de matrices. Este sistema utilizará información histórica, como datos de envíos de clones de papas a diferentes países, caracterización morfológica y parámetros de rendimiento del cultivo, para completar la información faltante. Esto permitirá identificar los cultivos más adaptables a regiones con condiciones climáticas similares, optimizando así la toma de decisiones para los mejoradores genéticos y reduciendo costos en transporte y pruebas de campo.
 
-Además, nuestro sistema de recomendación podrá establecer relaciones entre los clones desarrollados por el Centro Internacional de la Papa (CIP), integrando el estudio de marcadores moleculares y SNPs relacionados con parámetros de producción y adaptabilidad a diferentes condiciones. Esta integración facilitará el desarrollo de variedades optimizadas para enfrentar los retos agrícolas actuales.
-
-
 ## 2. Declaración del Problema
 
 La correcta elección del material genético es crucial para optimizar el tiempo de cultivo y los ensayos de adaptabilidad antes de liberar una variedad para su uso en campo. La ubicación donde se siembra un cultivo puede impactar significativamente en la producción de nuevas variedades. Por ello, el problema a abordar es la selección eficiente de clones de papas adaptables a diferentes condiciones climáticas, utilizando datos históricos y caracterización morfológica para reducir los tiempos y costos en la creación de nuevas variedades
