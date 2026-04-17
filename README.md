@@ -1,52 +1,13 @@
 # Optimización de Procesos de Selección de Papas con Base en Datos de Distribución Internacional de Clones: Desarrollo de un Sistema de Sugerencias para Reducir Tiempos de Selección
 
-## 1. Introducción & Antecedentes
-
-El mejoramiento tradicional de la papa ha sido una práctica esencial en la agricultura durante siglos. Este proceso consiste en la selección y cruce de variedades de papa con características deseadas, tales como resistencia a enfermedades, adaptación a diferentes condiciones climáticas, y mejora en la calidad y rendimiento de los tubérculos. Mediante la selección de plantas con los mejores atributos y su reproducción, los agricultores han logrado desarrollar variedades que no solo se adaptan mejor a las condiciones locales, sino que también ofrecen mayores beneficios económicos y nutricionales.
-![](https://github.com/FranciscoAscue/api-recommend-system-crops/blob/master/PAPA2.png)
-
-
-
-Uno de los principales retos en el mejoramiento genético de plantas es la generación de nuevas variedades resistentes a las condiciones climáticas actuales, las cuales son cada vez más variables debido al cambio climático. Además, estas variedades deben desarrollarse en corto tiempo para abordar problemas urgentes como la seguridad alimentaria. Los mejoradores genéticos enfrentan el desafío de tomar decisiones rápidas y precisas al seleccionar el germoplasma adecuado, es decir, elegir el material genético con las características óptimas para generar variedades adaptadas a sus condiciones climáticas específicas, reduciendo así los ensayos de adaptabilidad y estabilidad genética.
-
-La ubicación donde se siembra un cultivo puede impactar significativamente en la producción de nuevas variedades. Por ello, la correcta elección del material genético es clave para optimizar el tiempo de cultivo y los ensayos de adaptabilidad antes de liberar una variedad para su uso en campo. La ciencia de datos se presenta como una disciplina prometedora para agilizar este proceso, ya que utiliza información verificada y datos históricos para generar predicciones y acelerar la toma de decisiones. En la agricultura, la ciencia de datos y la inteligencia artificial están abordando numerosos retos, aplicándose en sistemas de recomendación para seleccionar cultivos y pesticidas adecuados, monitorear enfermedades en cultivos, y promover una agricultura inteligente.
-
-![](https://github.com/FranciscoAscue/api-recommend-system-crops/blob/master/FLUJO2.png)
-
-Nuestra propuesta se centra en desarrollar una plataforma de administración de datos que organizará la información y estará acoplada a un sistema de recomendación basado en el método de factorización de matrices. Este sistema utilizará información histórica, como datos de envíos de clones de papas a diferentes países, caracterización morfológica y parámetros de rendimiento del cultivo, para completar la información faltante. Esto permitirá identificar los cultivos más adaptables a regiones con condiciones climáticas similares, optimizando así la toma de decisiones para los mejoradores genéticos y reduciendo costos en transporte y pruebas de campo.
-
-## 2. Declaración del Problema
-
-La correcta elección del material genético es crucial para optimizar el tiempo de cultivo y los ensayos de adaptabilidad antes de liberar una variedad para su uso en campo. La ubicación donde se siembra un cultivo puede impactar significativamente en la producción de nuevas variedades. Por ello, el problema a abordar es la selección eficiente de clones de papas adaptables a diferentes condiciones climáticas, utilizando datos históricos y caracterización morfológica para reducir los tiempos y costos en la creación de nuevas variedades
-
-
-![](https://github.com/FranciscoAscue/api-recommend-system-crops/blob/master/DECLARACION%20DEL%20PROBLEMA.png)
-## 3. Desafíos
-
-El problema es técnicamente desafiante debido a la gran cantidad de datos necesarios para realizar predicciones precisas, la diversidad de condiciones climáticas a nivel mundial y la necesidad de modelos de recomendación robustos que puedan manejar datos esparsos y variables. Además, integrar estos modelos en una plataforma accesible y fácil de usar representa un desafío técnico significativo.
-
-## 4. Trabajos Relacionados
-
-Los trabajos anteriores han abordado estos desafíos mediante el uso de algoritmos de aprendizaje automático y sistemas de recomendación en otras áreas de la agricultura, como la selección de cultivos y pesticidas adecuados. Por ejemplo, Paudel et al. (2021) emplearon una combinación de modelos de cultivo y aprendizaje automático para predecir el rendimiento de los cultivos, utilizando datos de simulación de cultivos, clima, teledetección y suelos. Este enfoque modular y reutilizable mostró alta precisión en la predicción de rendimientos de cultivos a gran escala​ (SpringerLink)​.
-
-Sun et al. (2020) utilizaron técnicas como Gradient Boosting, Support Vector Regression (SVR) y k-Nearest Neighbors para predecir los rendimientos de varios cultivos, incluyendo papas, en diferentes países europeos. Su modelo de aprendizaje profundo combinó redes neuronales recurrentes (RNN) y convolucionales (CNN) para extraer características espaciales y temporales, mejorando significativamente la precisión de las predicciones en comparación con modelos tradicionales​ (SpringerLink)​.
-
-Khaki y Wang (2018) desarrollaron una solución basada en redes neuronales profundas para predecir el rendimiento de híbridos de maíz, utilizando datos de genotipos y medioambientales. Sus modelos mostraron una alta precisión al integrar variables de simulación de cultivos y datos meteorológicos, reduciendo el error de predicción del rendimiento hasta en un 20%​ (SpringerLink)​.
-
-En el ámbito específico de la recomendación de cultivos, Suresh et al. (2021) implementaron un sistema de recomendación eficiente basado en el aprendizaje automático para la agricultura digital, utilizando atributos de suelos y datos históricos para sugerir cultivos óptimos según las condiciones específicas de cada región. Este enfoque integró múltiples fuentes de datos para proporcionar recomendaciones personalizadas y precisas​ (SpringerLink)​.
-
-Patel y Patel (2020) realizaron una revisión exhaustiva de los sistemas de recomendación y sus extensiones prospectivas en la agricultura, destacando la integración de datos morfológicos y de rendimiento con recomendaciones específicas para condiciones climáticas variadas. Identificaron que la mayoría de los sistemas de recomendación actuales no consideraban completamente esta integración, lo que limita su aplicabilidad y precisión en escenarios reales​ (SpringerLink)​.
-
-Estos estudios proporcionan una base sólida para la integración de algoritmos de aprendizaje automático y sistemas de recomendación en el proceso de selección de clones de papas, mejorando la precisión y aplicabilidad del sistema de recomendación propuesto en nuestro trabajo.
-
-## 5. Objetivos
+## 1. Objetivos
 
 1. Desarrollar una plataforma de administración de datos: Crear una herramienta que permita organizar y gestionar de manera eficiente la información sobre clones de papas, incluyendo imágenes, caracterización morfológica y parámetros de rendimiento.
 2. Implementar un sistema de recomendación basado en matrix factorization: Utilizar este método para analizar y completar información faltante, optimizando la selección de clones de papas adaptables a diferentes condiciones climáticas.
 3. Optimizar la selección de clones de papas para envíos internacionales: Filtrar y recomendar los clones más adecuados para su envío a otros países, basándose en datos históricos de distribución y adaptabilidad a condiciones climáticas similares.
 4. Facilitar la toma de decisiones para los mejoradores de papas: Proveer una herramienta que apoye la toma de decisiones basada en datos, ayudando a los mejoradores a seleccionar los mejores clones de papas para su cultivo en nuevas regiones.
 
-## 6. Metodología
+## 2. Metodología
 
 ### Desarrollo de la Plataforma de Administración de Datos
 
@@ -87,7 +48,7 @@ El siguiente diagrama entidad-relación (ERD) muestra la estructura de la base d
 ![Diagrama ERD](https://github.com/FranciscoAscue/api-recommend-system-crops/blob/master/DATABASE.png)
 _Figura 2: Diagrama entidad-relación (ERD) de la base de datos utilizada en la plataforma. Las entidades principales incluyen usuarios, países, envíos, clones, variedades, características de clones y recomendaciones._
 
-## 7. Enfoque y Resultados
+## 3. Enfoque y Resultados
 
 
 ## Impacto Más Amplio
@@ -104,7 +65,7 @@ Esperamos que nuestro trabajo sea aplicado por otros investigadores y mejoradore
 
 Las principales limitaciones de nuestro trabajo incluyen la dependencia de datos históricos y la necesidad de una integración constante de nuevos datos para mantener la precisión del sistema de recomendación. Áreas para futuras mejoras incluyen la incorporación de más métodos de recomendación y el uso de datos en tiempo real para ajustar continuamente las recomendaciones.
 
-## 8. Cronograma
+## 4. Cronograma
 
 | Semana | Actividades                                                                                  |
 |--------|----------------------------------------------------------------------------------------------|
